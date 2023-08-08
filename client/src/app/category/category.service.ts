@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Category } from '../models/models';
+import { HttpClient } from '@angular/common/http';
 
 
 const categories: Category[] = [
@@ -31,10 +32,11 @@ export class CategoryService {
   private CategoryItemSubject = new BehaviorSubject<Category>(null)
   public item$ = this.CategoryItemSubject.asObservable()
 
-  constructor() { }
+  constructor(private http:HttpClient) { }
 
   public getCategoryItem(id: string) {
     const searchedCategory = categories.find(c => c.categoryID === id)
+
     this.CategoryItemSubject.next(searchedCategory)
   }
 }
