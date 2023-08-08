@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, Subscription } from 'rxjs';
-import { Category } from '../models/models';
+import { Category, Subcategory } from '../models/models';
 import { HttpClient } from '@angular/common/http';
 import { apiURL } from "../../environments/environment"
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -23,27 +23,27 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 @Injectable({
   providedIn: 'root'
 })
-export class CategoryService {
+export class SubcategoryService {
 
-  private CategoryListSubject = new BehaviorSubject<Category[]>([])
-  public list$: Observable<Category[]> = this.CategoryListSubject.asObservable()
+  private SubcategoryListSubject = new BehaviorSubject<Subcategory[]>([])
+  public list$: Observable<Subcategory[]> = this.SubcategoryListSubject.asObservable()
 
   private LoadingSubject = new BehaviorSubject<boolean>(false);
   public loading$: Observable<boolean> = this.LoadingSubject.asObservable()
 
-  private CategoryItemSubject = new BehaviorSubject<Category>(null)
-  public item$: Observable<Category> = this.CategoryItemSubject.asObservable()
+  private SubcategoryItemSubject = new BehaviorSubject<Subcategory>(null)
+  public item$: Observable<Subcategory> = this.SubcategoryItemSubject.asObservable()
 
   constructor(private http: HttpClient, private _matSnackbar: MatSnackBar) { }
 
   public getCategoryList(): Subscription {
     this.LoadingSubject.next(true)
-    return this.http.get<Category[]>(`${apiURL}/categories`).subscribe(
+    return this.http.get<Subcategory[]>(`${apiURL}/subcategories`).subscribe(
       {
         next: value => {
           if (value) {
             console.log(value)
-            this.CategoryListSubject.next(value);
+            this.SubcategoryListSubject.next(value);
             this.LoadingSubject.next(false);
           }
         },
@@ -59,12 +59,12 @@ export class CategoryService {
 
   public getCategoryItem(id: string): Subscription {
     this.LoadingSubject.next(true)
-    return this.http.get<Category>(`${apiURL}/categories/${id}`).subscribe(
+    return this.http.get<Subcategory>(`${apiURL}/subcategories/${id}`).subscribe(
       {
         next: value => {
           if (value) {
             console.log(value)
-            this.CategoryItemSubject.next(value);
+            this.SubcategoryItemSubject.next(value);
             this.LoadingSubject.next(false);
           }
         },

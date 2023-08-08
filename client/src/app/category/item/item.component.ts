@@ -13,6 +13,7 @@ export class ItemComponent implements OnInit {
 
   id: string;
   category$: Observable<Category>;
+  loading$: Observable<boolean>
 
   constructor(private router: ActivatedRoute, private categoryService: CategoryService) { }
 
@@ -21,5 +22,7 @@ export class ItemComponent implements OnInit {
     this.categoryService.getCategoryItem(this.id)
     this.category$ = this.categoryService.item$
   }
+
+
 
 }

@@ -8,7 +8,9 @@ const routes: Routes = [
   { path: "", component: HomeComponent },
   { path: "about", component: AboutComponent },
   { path: "auth", loadChildren: () => import("./user/user.module").then(m => m.UserModule) },
-  { path: "categories", loadChildren: () => import("./category/category.module").then(m => m.CategoryModule) }
+  { path: "categories", loadChildren: () => import("./category/category.module").then(m => m.CategoryModule) },
+  { path: "items", loadChildren: () => import("./item/item.module").then(m => m.ItemModule) },
+  { path: "cart", loadChildren: () => import("./cart/cart.module").then(m => m.CartModule) },
 ]
 
 @NgModule({

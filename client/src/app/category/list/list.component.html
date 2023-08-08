@@ -1,6 +1,8 @@
 <h1>Categories</h1>
 
-<div class="grid">
+<mat-progress-spinner *ngIf="(loading$ | async)"></mat-progress-spinner>
+
+<div class="grid" *ngIf="!(loading$ | async)">
 
   <ng-container *ngFor=" let el of (list$ |async) ">
     <app-card [title]="el.name" [routerLink]="['/categories',el.categoryID]"

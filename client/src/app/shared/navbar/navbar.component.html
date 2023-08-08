@@ -3,16 +3,27 @@
 
   <span class="spacer"></span>
 
-  <button mat-button [matMenuTriggerFor]="productMenu"><h3>Products</h3></button>
+  <span
+    style="display: flex; flex: 1; align-items: center; box-sizing: border-box; padding: 2vw;"
+    *ngIf="!(isHandset$ | async)">
+    <button mat-button [matMenuTriggerFor]="productMenu"><h3>Products</h3></button>
 
-  <span class="spacer"></span>
+    <span class="spacer"></span>
 
-  <button mat-button *ngIf="!( isLoggedIn$ | async)" routerLink="/auth/login"><h3>Login</h3></button>
-  <button mat-raised-button color="primary" *ngIf="!( isLoggedIn$ | async)"
-    routerLink="/auth/register"> <h3>Signin</h3>
-  </button>
-  <button mat-icon-button *ngIf="( isLoggedIn$ | async)"
-    [matMenuTriggerFor]="userMenu"><mat-icon>account_circle</mat-icon></button>
+    <button mat-button *ngIf="!( isLoggedIn$ | async)" routerLink="/auth/login"><h3>Login</h3></button>
+    <button mat-raised-button color="primary" *ngIf="!( isLoggedIn$ | async)"
+      routerLink="/auth/register"> <h3>Signin</h3>
+    </button>
+
+    <button routerLink="/cart" mat-fab extended color="primary">
+      <mat-icon>shopping_cart</mat-icon>
+      {{cartCount | async}}
+    </button>
+
+    <button mat-fab *ngIf="( isLoggedIn$ | async)" color='primary'
+      [matMenuTriggerFor]="userMenu"><mat-icon>account_circle</mat-icon></button>
+
+  </span>
 
   <button
     type="button"

@@ -1,0 +1,17 @@
+.grid {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 3vw;
+  flex-wrap: wrap;
+  height: 100%;
+}
+
+/* .grid {
+  outline: 2px solid red;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5fr;
+} */

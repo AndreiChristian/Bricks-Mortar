@@ -74,9 +74,7 @@ export interface Cart {
   userID: string;
 }
 
-export interface CartItem {
-  cartItemID: string;
-  cartID: string;
+export interface CartItem extends Item {
   itemID: string;
   quantity: number;
 }
