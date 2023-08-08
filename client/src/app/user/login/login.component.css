@@ -1,0 +1,12 @@
+mat-card {
+  max-width: 500px;
+  margin: 2rem auto;
+}
+
+.spacer {
+  height: 2vh;
+}
+
+.full-width {
+  width: 100%;
+}

@@ -1,0 +1,44 @@
+<mat-toolbar color="primary">
+  <button mat-button routerLink="/"><h1>{{storeName}}</h1></button>
+
+  <span class="spacer"></span>
+
+  <button mat-button [matMenuTriggerFor]="productMenu"><h3>Products</h3></button>
+
+  <span class="spacer"></span>
+
+  <button mat-button *ngIf="!( isLoggedIn$ | async)" routerLink="/auth/login"><h3>Login</h3></button>
+  <button mat-raised-button color="primary" *ngIf="!( isLoggedIn$ | async)"
+    routerLink="/auth/register"> <h3>Signin</h3>
+  </button>
+  <button mat-icon-button *ngIf="( isLoggedIn$ | async)"
+    [matMenuTriggerFor]="userMenu"><mat-icon>account_circle</mat-icon></button>
+
+  <button
+    type="button"
+    aria-label="Toggle sidenav"
+    mat-icon-button
+    (click)="drawer.toggle()"
+    *ngIf="isHandset$ | async">
+    <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+  </button>
+</mat-toolbar>
+
+<mat-menu #userMenu="matMenu">
+  <button routerLink="/auth/profile" mat-menu-item>
+    <button mat-button>Profile</button>
+  </button>
+  <button mat-menu-item>
+    <button mat-button>Orders</button>
+  </button>
+  <button mat-menu-item>
+    <button mat-raised-button color="warn">Logout</button>
+  </button>
+</mat-menu>
+
+<mat-menu #productMenu="matMenu">
+
+  <button mat-menu-item>
+  </button>
+
+</mat-menu>
