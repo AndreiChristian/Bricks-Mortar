@@ -7,6 +7,23 @@
 }
 
 main {
+  background-color: whitesmoke;
+  background-image: linear-gradient(335deg, white, 23px, transparent 23px),
+    linear-gradient(155deg, white, 23px, transparent 23px),
+    linear-gradient(335deg, white, 23px, transparent 23px),
+    linear-gradient(155deg, white, 23px, transparent 23px);
+  background-size: 58px 58px;
+  background-position: 0px 2px, 4px 35px, 29px 31px, 34px 6px;
+
+
+  /* background-color: #dceff7; Light shade of white-blue
+  background-image: linear-gradient(335deg, #ffffff 23px, transparent 23px),
+    linear-gradient(155deg, #dceff7 23px, transparent 23px),
+    linear-gradient(335deg, #ffffff 23px, transparent 23px),
+    linear-gradient(155deg, #dceff7 23px, transparent 23px);
+  background-size: 58px 58px;
+  background-position: 0px 2px, 4px 35px, 29px 31px, 34px 6px; */
+
   width: 100%;
   min-height: 100vh;
   min-height: 100dvh;

@@ -8,6 +8,28 @@
   height: 100%;
 }
 
+mat-card {
+  width: 400px;
+}
+
+mat-card img {
+  width: 400px;
+}
+
+mat-card section {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2vh;
+}
+
+.name {
+  font-size: larger;
+  font-weight: bold;
+}
+
 /* .grid {
   outline: 2px solid red;
   width: 100%;

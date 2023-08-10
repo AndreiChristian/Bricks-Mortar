@@ -6,12 +6,10 @@
     <app-sidenav></app-sidenav>
   </mat-sidenav>
   <mat-sidenav-content class="container">
-
     <app-navbar [drawer]="drawer"></app-navbar>
-
     <main>
       <ng-content></ng-content>
     </main>
-
+    <app-footer></app-footer>
   </mat-sidenav-content>
 </mat-sidenav-container>

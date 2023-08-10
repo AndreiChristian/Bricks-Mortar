@@ -39,6 +39,8 @@ export class NavbarComponent implements OnInit {
       shareReplay()
     );
 
-
+  logout() {
+    this.authService.logout()
+  }
 
 }

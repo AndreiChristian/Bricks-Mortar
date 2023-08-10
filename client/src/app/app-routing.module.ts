@@ -11,6 +11,7 @@ const routes: Routes = [
   { path: "categories", loadChildren: () => import("./category/category.module").then(m => m.CategoryModule) },
   { path: "items", loadChildren: () => import("./item/item.module").then(m => m.ItemModule) },
   { path: "cart", loadChildren: () => import("./cart/cart.module").then(m => m.CartModule) },
+  { path: "order", loadChildren: () => import("./order/order.module").then(m => m.OrderModule) },
 ]
 
 @NgModule({

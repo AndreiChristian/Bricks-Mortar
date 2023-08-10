@@ -8,6 +8,8 @@ const app = express();
 
 app.use(cors)
 
+
+
 app.use("/api/categories",categoryRouter)
 app.use("/api/subcategories",subcategoryRouter)
 app.use("/api/items",itemRouter)

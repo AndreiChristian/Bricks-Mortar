@@ -2,19 +2,44 @@
 
 <div class="grid">
   <ng-container *ngFor="let i of (cartItems$ | async)">
+
     <mat-card>
-      <mat-card-header>
-        <mat-card-title><h1>{{i.name}}</h1></mat-card-title>
-        <mat-card-subtitle><h2>{{i.quantity}}</h2></mat-card-subtitle>
-      </mat-card-header>
       <mat-card-content>
-        <p>{{i.description}}</p>
-        <img
-          src="https://www.structuralguide.com/wp-content/uploads/2022/01/Construction-Materials.jpg">
+        <section>
+          <img
+            src="https://www.structuralguide.com/wp-content/uploads/2022/01/Construction-Materials.jpg">
+          <div class="about">
+            <span class="name">{{i.name}}</span>
+            <span>{{i.price}} ron/bucata</span>
+            <span>{{i.description}}</span>
+            <span>Cantitate : {{i.quantity}}</span>
+            <span>Total : {{i.quantity * i.price }}</span>
+          </div>
+          <div class="actions">
+            <button mat-fab extended color="primary" (click)="addOneToCart(i)">
+              <mat-icon>add_shopping_cart</mat-icon>
+              Adauga in cos
+            </button>
+            <button mat-fab extended color="accent"
+              (click)="decrementOneFromCart(i.itemID)">
+              <mat-icon>add_shopping_cart</mat-icon>
+              Reduceti cantitate
+            </button>
+            <button mat-fab extended color="warn"
+              (click)="removeFromCart(i.itemID)">
+              <mat-icon>add_shopping_cart</mat-icon>
+              Elimina din cos
+            </button>
+          </div>
+        </section>
       </mat-card-content>
-      <mat-card-actions align="end">
-        <!-- <button mat-icon-button color="primary" (click)="addItemToCart(i)"><mat-icon>add_shopping_cart</mat-icon></button> -->
-      </mat-card-actions>
+
     </mat-card>
+
   </ng-container>
 </div>
+<button style="width: 100%; margin: 5vh auto; height: 10vh;"
+  routerLink="/order/new" mat-raised-button
+  color="primary"
+  routerLink="/order/new"><h1>Mergeti la completarea
+    datelor de contact</h1></button>

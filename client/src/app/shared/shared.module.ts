@@ -32,7 +32,8 @@ import { CardComponent } from './UI/card/card.component';
     NavigationComponent,
     HomeComponent,
     AboutComponent,
-    CardComponent
+    CardComponent,
+    FooterComponent
   ]
 })
 export class SharedModule { }
