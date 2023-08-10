@@ -8,33 +8,58 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.deleteSubcategory = exports.patchSubcategory = exports.postSubcategory = exports.getOneItem = exports.getAllItemsBySubcategoryId = exports.getAllItems = void 0;
-const dummyData_1 = require("../dummyData");
+const prisma_1 = __importDefault(require("../db/prisma"));
 const getAllItems = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
-    const c = dummyData_1.items;
-    res.json(c);
+    try {
+        const items = yield prisma_1.default.item.findMany();
+        if (!items) {
+            throw new Error("No items");
+        }
+        return res.status(200).json(items);
+    }
+    catch (err) {
+        return res.status(400).json({ err: err.message });
+    }
 });
 exports.getAllItems = getAllItems;
 const getAllItemsBySubcategoryId = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     const { id } = req.params;
-    const searchedSubcategory = dummyData_1.items.find(c => c.subcategoryID == id);
-    if (searchedSubcategory) {
-        res.status(200).json(searchedSubcategory);
+    try {
+        const items = yield prisma_1.default.item.findMany({
+            where: {
+                subcategoryID: +id
+            }
+        });
+        if (!items) {
+            throw new Error("No items");
+        }
+        return res.status(200).json(items);
     }
-    else {
-        res.status(401).json({ "ok": false });
+    catch (err) {
+        return res.status(400).json({ err: err.message });
     }
 });
 exports.getAllItemsBySubcategoryId = getAllItemsBySubcategoryId;
 const getOneItem = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     const { id } = req.params;
-    const searchedSubcategory = dummyData_1.items.find(c => c.itemID == id);
-    if (searchedSubcategory) {
-        res.status(200).json(searchedSubcategory);
+    try {
+        const items = yield prisma_1.default.item.findMany({
+            where: {
+                itemID: +id
+            }
+        });
+        if (!items) {
+            throw new Error("No items");
+        }
+        return res.status(200).json(items);
     }
-    else {
-        res.status(401).json({ "ok": false });
+    catch (err) {
+        return res.status(400).json({ err: err.message });
     }
 });
 exports.getOneItem = getOneItem;
