@@ -6,6 +6,96 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "sqlite"
   url      = env("DATABASE_URL")
+}
+
+model User {
+  userID         Int             @id @default(autoincrement())
+  first_name     String
+  last_name      String
+  email          String          @unique
+  password       String?
+  address        Address?
+  phoneNumber    String?
+  orders         Order[]
+  paymentMethods PaymentMethod[]
+}
+
+model Address {
+  id      Int    @id @default(autoincrement())
+  city    String
+  state   String
+  country String
+  street  String
+  number  String
+  user    User   @relation(fields: [userId], references: [userID])
+  userId  Int    @unique
+}
+
+model Item {
+  itemID          Int         @id @default(autoincrement())
+  name            String
+  description     String
+  price           Float
+  quantityInStock Int
+  categoryID      Int
+  subcategoryID   Int
+  category        Category    @relation(fields: [categoryID], references: [categoryID])
+  subcategory     Subcategory @relation(fields: [subcategoryID], references: [subcategoryID])
+  image           String
+  orderItems      OrderItem[]
+}
+
+model Category {
+  categoryID    Int           @id @default(autoincrement())
+  name          String
+  description   String
+  image         String
+  subcategories Subcategory[]
+  items         Item[]
+}
+
+model Subcategory {
+  subcategoryID Int      @id @default(autoincrement())
+  name          String
+  description   String
+  image         String
+  categoryID    Int
+  category      Category @relation(fields: [categoryID], references: [categoryID])
+  Item          Item[]
+}
+
+model Order {
+  orderID                      Int            @id @default(autoincrement())
+  userID                       Int
+  user                         User           @relation(fields: [userID], references: [userID])
+  totalPrice                   Float
+  orderDate                    DateTime
+  shippingAddress              String
+  paymentMethodID              String
+  orderItems                   OrderItem[]
+  PaymentMethod                PaymentMethod? @relation(fields: [paymentMethodPaymentMethodID], references: [paymentMethodID])
+  paymentMethodPaymentMethodID Int?
+}
+
+model OrderItem {
+  orderItemID Int   @id @default(autoincrement())
+  orderID     Int
+  order       Order @relation(fields: [orderID], references: [orderID])
+  itemID      Int
+  item        Item  @relation(fields: [itemID], references: [itemID])
+  quantity    Int
+  price       Float
+}
+
+model PaymentMethod {
+  paymentMethodID Int      @id @default(autoincrement())
+  userID          Int
+  user            User     @relation(fields: [userID], references: [userID])
+  cardNumber      String
+  expirationDate  DateTime
+  CVV             Int
+  billingAddress  String
+  orders          Order[]
 }

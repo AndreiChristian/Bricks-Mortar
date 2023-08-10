@@ -4,13 +4,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
-const category_1 = __importDefault(require("./routes/category"));
-const subcategory_1 = __importDefault(require("./routes/subcategory"));
-const item_1 = __importDefault(require("./routes/item"));
-const cors_1 = require("./middleware/cors");
+const index_1 = __importDefault(require("./routes/index"));
+const cors_1 = __importDefault(require("cors"));
 const app = (0, express_1.default)();
-app.use(cors_1.cors);
-app.use("/api/categories", category_1.default);
-app.use("/api/subcategories", subcategory_1.default);
-app.use("/api/items", item_1.default);
+app.use((0, cors_1.default)());
+app.use(express_1.default.json());
+app.use("/api", index_1.default);
 app.listen("8080", () => console.log("Hello World"));
