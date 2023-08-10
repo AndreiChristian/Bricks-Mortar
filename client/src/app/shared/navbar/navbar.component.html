@@ -1,15 +1,14 @@
 <mat-toolbar color="primary">
   <button mat-button routerLink="/"><h1>{{storeName}}</h1></button>
 
+  <app-autocomplete></app-autocomplete>
   <span class="spacer"></span>
 
-  <span
+  <span class="elements"
     style="display: flex; flex: 1; align-items: center; box-sizing: border-box; padding: 2vw; gap: 1vw;"
     *ngIf="!(isHandset$ | async)">
-    <button mat-button [matMenuTriggerFor]="productMenu"><h3>Products</h3></button>
-
+    <app-menu></app-menu>
     <span class="spacer"></span>
-
 
     <button routerLink="/cart" mat-fab extended color="primary">
       <mat-icon>shopping_cart</mat-icon>

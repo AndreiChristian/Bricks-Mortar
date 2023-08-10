@@ -10,6 +10,9 @@ import { SidenavComponent } from './sidenav/sidenav.component';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './about/about.component';
 import { CardComponent } from './UI/card/card.component';
+import { MenuComponent } from './menu/menu.component';
+import { AutocompleteComponent } from './autocomplete/autocomplete.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -20,13 +23,16 @@ import { CardComponent } from './UI/card/card.component';
     FooterComponent,
     SidenavComponent,
     AboutComponent,
-    CardComponent
+    CardComponent,
+    MenuComponent,
+    AutocompleteComponent
   ],
   imports: [
     CommonModule,
     LayoutModule,
     MaterialModule,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule
   ],
   exports: [
     NavigationComponent,

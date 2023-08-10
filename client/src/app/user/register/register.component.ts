@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Observable, Subscription } from 'rxjs';
 import { AuthService } from 'src/app/core/auth.service';
 import { User } from 'src/app/models/models';
 
@@ -9,9 +10,17 @@ import { User } from 'src/app/models/models';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent {
+export class RegisterComponent implements OnDestroy {
+
+  loading$: Observable<boolean>
+
+  subscription: Subscription
 
   constructor(private authService: AuthService, private router: Router) { }
+
+  ngOnInit(): void {
+    this.loading$ = this.authService.loading$
+  }
 
   onSubmit(form: NgForm) {
     if (form.valid) {
@@ -22,9 +31,15 @@ export class RegisterComponent {
         email,
         password
       }
-      this.authService.logIn(newUser)
-      this.router.navigate(['/'])
+      console.log(newUser)
+      this.authService.register(newUser)
+      // this.authService.logIn(newUser)
+      // this.router.navigate(['/'])
     }
+  }
+
+  ngOnDestroy(): void {
+    this.subscription && this.subscription.unsubscribe()
   }
 
 }

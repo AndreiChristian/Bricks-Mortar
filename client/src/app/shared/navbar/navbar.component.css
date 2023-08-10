@@ -1,7 +1,7 @@
 .mat-toolbar.mat-primary {
   position: sticky;
   top: 0;
-  z-index: 1;
+  z-index: 3;
   background-color: white;
   box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.321);
   color: black;
@@ -10,4 +10,9 @@
 
 .spacer {
   flex: 1;
+}
+
+.elements {
+  display: flex;
+  align-items: center;
 }

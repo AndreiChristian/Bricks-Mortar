@@ -7,7 +7,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { MaterialModule } from '../material/material.module';
 
 const itemRoutes: Routes = [
-  { path: "", component: ListComponent }
+  { path: "", component: ListComponent },
+  { path: ":id", component: ItemComponent }
 ]
 
 @NgModule({
