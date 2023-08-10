@@ -13,6 +13,7 @@ import { CardComponent } from './UI/card/card.component';
 import { MenuComponent } from './menu/menu.component';
 import { AutocompleteComponent } from './autocomplete/autocomplete.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ItemsListComponent } from './items-list/items-list.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     AboutComponent,
     CardComponent,
     MenuComponent,
-    AutocompleteComponent
+    AutocompleteComponent,
+    ItemsListComponent
   ],
   imports: [
     CommonModule,
@@ -39,7 +41,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     HomeComponent,
     AboutComponent,
     CardComponent,
-    FooterComponent
+    FooterComponent,
+    ItemsListComponent
   ]
 })
 export class SharedModule { }

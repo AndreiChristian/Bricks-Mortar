@@ -2,6 +2,7 @@
 
 <!-- main menu -->
 <mat-menu #animals="matMenu">
+  <button mat-menu-item routerLink="/items" >Toate produsele</button>
   <button mat-menu-item [matMenuTriggerFor]="lemn">Lemn si compozite</button>
   <button mat-menu-item [matMenuTriggerFor]="zidarie">Zidarie si Beton</button>
   <button mat-menu-item [matMenuTriggerFor]="acoperisuri">Acoperișuri și
@@ -9,18 +10,21 @@
 </mat-menu>
 
 <mat-menu #lemn="matMenu">
+  <button mat-menu-item routerLink="/categories" >Toate produsele</button>
   <button mat-menu-item>Lemn Masin</button>
   <button mat-menu-item>Placaj</button>
   <button mat-menu-item>Materiale si Compozite</button>
 </mat-menu>
 
 <mat-menu #zidarie="matMenu">
+  <button mat-menu-item routerLink="/items" >Toate produsele</button>
   <button mat-menu-item>Caramizi</button>
   <button mat-menu-item>Blocuri de Beton</button>
   <button mat-menu-item>Mortar si Ciment</button>
 </mat-menu>
 
 <mat-menu #acoperisuri="matMenu">
+  <button mat-menu-item routerLink="/items" >Toate produsele</button>
   <button mat-menu-item>Tigle</button>
   <button mat-menu-item>Jgheaburi si Burlane</button>
   <button mat-menu-item>Izolatii acoperis</button>
