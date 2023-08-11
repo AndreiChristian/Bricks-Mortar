@@ -19,6 +19,11 @@ import { StrokedButtonComponent } from './UI/stroked-button/stroked-button.compo
 import { RaisedIconButtonComponent } from './UI/raised-icon-button/raised-icon-button.component';
 import { StrokedIconButtonComponent } from './UI/stroked-icon-button/stroked-icon-button.component';
 import { SectionHeaderComponent } from './UI/section-header/section-header.component';
+import { HeroComponent } from './home/hero/hero.component';
+import { AdvantagesComponent } from './home/advantages/advantages.component';
+import { AboutusComponent } from './home/aboutus/aboutus.component';
+import { InfiniteTextComponent } from './infinite-text/infinite-text.component';
+import { InfiniteScrollingTextDirective } from './infinite-scrolling-text.directive';
 
 
 @NgModule({
@@ -37,7 +42,13 @@ import { SectionHeaderComponent } from './UI/section-header/section-header.compo
     StrokedButtonComponent,
     RaisedIconButtonComponent,
     StrokedIconButtonComponent,
-    SectionHeaderComponent
+    SectionHeaderComponent,
+    HeroComponent,
+    AdvantagesComponent,
+    AboutusComponent,
+    InfiniteTextComponent,
+    InfiniteScrollingTextDirective,
+
   ],
   imports: [
     CommonModule,
@@ -58,7 +69,8 @@ import { SectionHeaderComponent } from './UI/section-header/section-header.compo
     StrokedButtonComponent,
     RaisedIconButtonComponent,
     StrokedIconButtonComponent,
-    SectionHeaderComponent
+    SectionHeaderComponent,
+    InfiniteScrollingTextDirective
   ]
 })
 export class SharedModule { }

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { imageUrls } from 'src/app/constants/constants';
 
 @Component({
   selector: 'app-home',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
+
+  tower = imageUrls.tower;
 
 }

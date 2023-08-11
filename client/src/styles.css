@@ -20,7 +20,27 @@ body {
   --dark: #262523;
   --medium: #81817d;
   --light: #b3b2ae;
-  --mint: #e3ebd2;
-  --transparent-mint: #e3ebd285;
+  --mint: #f7ede3;
+  --transparent-mint: #f7ede3c3;
   --warn: #ff5301;
 }
+
+
+@keyframes marqueeRtl {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marqueeLtr {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+

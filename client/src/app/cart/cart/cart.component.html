@@ -1,4 +1,4 @@
-<h1>/// Cart</h1>
+<h1 appInfiniteScrollingText>/// Cart</h1>
 
 <div class="grid">
   <ng-container *ngFor="let i of (cartItems$ | async)">
@@ -25,8 +25,10 @@
         <div class="spacer"></div>
         <span class="quantity">{{i.quantity}}</span>
         <span>Produse in cos</span>
-        <button class="remove"
-          (click)="removeFromCart(i.itemID)">Eliminati</button>
+        <button class="remove" style="overflow: hidden;"
+          (click)="removeFromCart(i.itemID)">
+          <div>Eliminati</div>
+        </button>
         <div class="spacer"></div>
         <app-raised-button [text]="'Vizitati produsul'"
           [routerLink]="['/items',i.itemID]"></app-raised-button>
@@ -37,4 +39,8 @@
   </ng-container>
 </div>
 
-<button routerLink="/order/new">Mergeti la adresa de livrare</button>
+<button routerLink="/order/new">
+  <div class appInfiniteScrollingText [activateOnHover]="true">Mergeti la adresa
+    de
+    livrare</div>
+</button>

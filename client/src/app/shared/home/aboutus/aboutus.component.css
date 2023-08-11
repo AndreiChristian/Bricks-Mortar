@@ -1,0 +1,34 @@
+h1 {
+  color: var(--dark);
+  text-align: center;
+}
+
+.matrix-grid {
+  margin: 5vh auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  width: 40vw;
+  height: 40vw;
+}
+
+.cell {
+  color: var(--dark);
+  border: 1px solid var(--dark);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s;
+  box-sizing: border-box;
+  font-size: large;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.active {
+  background-color: var(--dark);
+  color: var(--mint);
+}

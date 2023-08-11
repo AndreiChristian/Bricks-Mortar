@@ -1,1 +1,5 @@
-<p>item works!</p>
+<ng-container *ngIf="subcategory$">
+  <app-section-header [description]="(subcategory$ |async).description"
+    [title]="(subcategory$ |async).name" [image]="craneImage"></app-section-header>
+</ng-container>
+<app-items-list [items$]="items$"></app-items-list>

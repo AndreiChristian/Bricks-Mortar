@@ -1,0 +1,29 @@
+.hero {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.hero h2 {
+  font-size: 3.5rem;
+  margin-bottom: 0;
+  color: var(--dark);
+}
+
+.hero h1 {
+  font-size: 5rem;
+  color: var(--dark);
+  margin-top: 0;
+}
+
+.hero p {
+  width: 50%;
+  align-self: flex-start;
+  color: var(--dark);
+}
+
+.hero img {
+  width: 90%;
+  height: 60vh;
+  object-fit: cover;
+}

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, Subscription } from 'rxjs';
-import { Category, Subcategory } from '../models/models';
+import { Category, Item, Subcategory } from '../models/models';
 import { HttpClient } from '@angular/common/http';
 import { apiURL } from "../../environments/environment"
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -34,6 +34,9 @@ export class SubcategoryService {
   private SubcategoryItemSubject = new BehaviorSubject<Subcategory>(null)
   public item$: Observable<Subcategory> = this.SubcategoryItemSubject.asObservable()
 
+  private ItemsSubject = new BehaviorSubject<Item[]>([])
+  public itemsBySubcategory$: Observable<Item[]> = this.ItemsSubject.asObservable()
+
   constructor(private http: HttpClient, private _matSnackbar: MatSnackBar) { }
 
   public getCategoryList(): Subscription {
@@ -65,6 +68,26 @@ export class SubcategoryService {
           if (value) {
             console.log(value)
             this.SubcategoryItemSubject.next(value);
+            this.LoadingSubject.next(false);
+          }
+        },
+        error: err => {
+          console.error(err);
+          this.LoadingSubject.next(false);
+          this._matSnackbar.open(err)
+        },
+      }
+    )
+
+  }
+  public getItemsBySubcategoryId(id: string): Subscription {
+    this.LoadingSubject.next(true)
+    return this.http.get<Item[]>(`${apiURL}/items/subcategory/${id}`).subscribe(
+      {
+        next: value => {
+          if (value) {
+            console.log(value)
+            this.ItemsSubject.next(value);
             this.LoadingSubject.next(false);
           }
         },
