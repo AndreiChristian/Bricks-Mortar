@@ -1,7 +1,15 @@
+<div class="display">
+  <h3>Display</h3>
+  <mat-button-toggle-group [(ngModel)]="display" aria-label="Font Style">
+    <mat-button-toggle value="grid">Grid</mat-button-toggle>
+    <mat-button-toggle value="list">List</mat-button-toggle>
+  </mat-button-toggle-group>
+</div>
+
 <div class="grid">
   <ng-container *ngFor="let i of (items$ | async)">
 
-    <mat-card>
+    <!-- <mat-card>
       <mat-card-content>
         <img
           src="https://www.structuralguide.com/wp-content/uploads/2022/01/Construction-Materials.jpg">
@@ -17,7 +25,28 @@
         </section>
       </mat-card-content>
 
-    </mat-card>
+    </mat-card> -->
+
+    <div class="card">
+
+      <div class="triangle-down"></div>
+      <div class="triangle-up"></div>
+
+      <img
+        [src]="craneImage" />
+      <div class="about">
+        <span>{{i.name}}</span>
+        <span>{{i.description}}</span>
+        <span>Disponibil online. Livrare in maximum 48 ore!</span>
+        <span>{{i.price}} ron/bucata</span>
+      </div>
+      <div class="actions">
+        <!-- <button>Vizitati produs</button>
+        <button>Adauga in cos</button> -->
+        <app-raised-button [text]="'Vizitati produsul'"></app-raised-button>
+        <app-raised-button [text]="'Adaugati in cos'"></app-raised-button>
+      </div>
+    </div>
 
   </ng-container>
 </div>

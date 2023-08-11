@@ -1,0 +1,18 @@
+button {
+  box-shadow: none;
+
+  background-color: var(--dark);
+  padding: 15px 25px;
+  border: none;
+  outline: none;
+  color: whitesmoke;
+  border: 1px solid whitesmoke;
+  border-radius: 20px;
+  font-size: medium;
+}
+
+button:hover {
+  background-color: whitesmoke;
+  color: var(--dark);
+  transition: all 0.5s;
+}

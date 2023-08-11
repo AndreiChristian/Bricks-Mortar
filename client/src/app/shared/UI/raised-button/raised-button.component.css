@@ -1,0 +1,19 @@
+button {
+
+  box-shadow: none;
+
+  background-color: var(--dark);
+  padding: 15px 20px;
+  border: none;
+  outline: none;
+  color: var(--mint);
+  border: 1px solid var(--mint);
+  border-radius: 20px;
+  font-size: medium;
+}
+
+button:hover {
+  background-color: var(--mint);
+  color: var(--dark);
+  transition: all 0.5s;
+}

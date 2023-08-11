@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CategoryService } from "../category.service"
 import { Observable, Subscription } from 'rxjs';
 import { Category } from 'src/app/models/models';
+import { imageUrls } from 'src/app/constants/constants';
 
 @Component({
   selector: 'app-list',
@@ -9,6 +10,8 @@ import { Category } from 'src/app/models/models';
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit, OnDestroy {
+
+  crane = imageUrls.crane
 
   list$: Observable<Category[]>
   subscription: Subscription;

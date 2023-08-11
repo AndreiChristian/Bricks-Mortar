@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, Subscription } from 'rxjs';
-import { Category } from '../models/models';
+import { Category, Item } from '../models/models';
 import { HttpClient } from '@angular/common/http';
 import { apiURL } from "../../environments/environment"
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -24,6 +24,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   providedIn: 'root'
 })
 export class CategoryService {
+
+  private ItemCategoryList = new BehaviorSubject<Item[]>([])
+  public itemsByCategory$ = this.ItemCategoryList.asObservable()
 
   private CategoryListSubject = new BehaviorSubject<Category[]>([])
   public list$: Observable<Category[]> = this.CategoryListSubject.asObservable()
@@ -59,12 +62,32 @@ export class CategoryService {
 
   public getCategoryItem(id: string): Subscription {
     this.LoadingSubject.next(true)
-    return this.http.get<Category>(`${apiURL}/categories/${id}`).subscribe(
+    return this.http.get<Category[]>(`${apiURL}/categories/${id}`).subscribe(
       {
         next: value => {
           if (value) {
             console.log(value)
-            this.CategoryItemSubject.next(value);
+            this.CategoryItemSubject.next(value[0]);
+            this.LoadingSubject.next(false);
+          }
+        },
+        error: err => {
+          console.error(err);
+          this.LoadingSubject.next(false);
+          this._matSnackbar.open(err)
+        },
+      }
+    )
+
+  }
+  public getItemsByCategoryId(id: string): Subscription {
+    this.LoadingSubject.next(true)
+    return this.http.get<Item[]>(`${apiURL}/items/category/${id}`).subscribe(
+      {
+        next: value => {
+          if (value) {
+            console.log(value)
+            this.ItemCategoryList.next(value);
             this.LoadingSubject.next(false);
           }
         },

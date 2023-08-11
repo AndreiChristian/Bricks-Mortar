@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Observable } from 'rxjs';
+import { imageUrls } from 'src/app/constants/constants';
 import { Item } from 'src/app/models/models';
 
 @Component({
@@ -8,6 +9,10 @@ import { Item } from 'src/app/models/models';
   styleUrls: ['./items-list.component.css']
 })
 export class ItemsListComponent {
+
+  craneImage = imageUrls.crane
+
+  display: string = "grid"
 
   @Input() items$: Observable<Item[]>
 

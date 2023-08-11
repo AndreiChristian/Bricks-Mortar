@@ -12,8 +12,13 @@ import { AboutComponent } from './about/about.component';
 import { CardComponent } from './UI/card/card.component';
 import { MenuComponent } from './menu/menu.component';
 import { AutocompleteComponent } from './autocomplete/autocomplete.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ItemsListComponent } from './items-list/items-list.component';
+import { RaisedButtonComponent } from './UI/raised-button/raised-button.component';
+import { StrokedButtonComponent } from './UI/stroked-button/stroked-button.component';
+import { RaisedIconButtonComponent } from './UI/raised-icon-button/raised-icon-button.component';
+import { StrokedIconButtonComponent } from './UI/stroked-icon-button/stroked-icon-button.component';
+import { SectionHeaderComponent } from './UI/section-header/section-header.component';
 
 
 @NgModule({
@@ -27,14 +32,20 @@ import { ItemsListComponent } from './items-list/items-list.component';
     CardComponent,
     MenuComponent,
     AutocompleteComponent,
-    ItemsListComponent
+    ItemsListComponent,
+    RaisedButtonComponent,
+    StrokedButtonComponent,
+    RaisedIconButtonComponent,
+    StrokedIconButtonComponent,
+    SectionHeaderComponent
   ],
   imports: [
     CommonModule,
     LayoutModule,
     MaterialModule,
     RouterModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   exports: [
     NavigationComponent,
@@ -42,7 +53,11 @@ import { ItemsListComponent } from './items-list/items-list.component';
     AboutComponent,
     CardComponent,
     FooterComponent,
-    ItemsListComponent
+    ItemsListComponent,
+    RaisedButtonComponent,
+    StrokedButtonComponent,
+    RaisedIconButtonComponent,
+    StrokedIconButtonComponent
   ]
 })
 export class SharedModule { }

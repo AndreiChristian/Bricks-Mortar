@@ -1,0 +1,92 @@
+.grid {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 3vw;
+  flex-wrap: wrap;
+  flex-direction: column;
+  height: 100%;
+}
+
+.triangle-down {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-bottom: 100px solid var(--mint);
+  border-right: 100px solid transparent;
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  background-color: var(--dark);
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  box-sizing: border-box;
+  padding: 3vh;
+  gap: 2vw;
+}
+
+.about {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2vh;
+}
+
+.card img {
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 100%;
+  gap: 5vh;
+}
+
+button {
+  background-color: var(--dark);
+  padding: 15px;
+  border: none;
+  outline: none;
+  color: whitesmoke;
+  border: 1px solid whitesmoke;
+  border-radius: 20px;
+  font-size: medium;
+}
+
+button:hover {
+  background-color: whitesmoke;
+  color: var(--dark);
+  transition: all 0.5s;
+}
+
+.display {
+  width: 100%;
+  margin: 2vh 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 2vw;
+}
+
+span:nth-child(1) {
+  font-size: xx-large;
+  margin-bottom: 2vh;
+}
+
+span:nth-child(4) {
+  font-size: x-large;
+  margin-top: 2vh;
+}

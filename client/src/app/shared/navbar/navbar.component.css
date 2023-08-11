@@ -2,10 +2,24 @@
   position: sticky;
   top: 0;
   z-index: 3;
-  background-color: white;
-  box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.321);
+  background-color: var(--transparent-mint);
+  /* box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.321); */
+  backdrop-filter: blur(10px);
   color: black;
   gap: 1vw;
+}
+
+.title {
+  font-size: x-large;
+  padding: 1vh 2vh;
+  background-color: var(--dark);
+  color: var(--mint);
+  transition: all 0.5s;
+}
+
+.title:hover {
+  background-color: var(--transparent-mint);
+  color: var(--dark);
 }
 
 .spacer {
