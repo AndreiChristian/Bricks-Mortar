@@ -8,25 +8,6 @@
 
 <div class="grid">
   <ng-container *ngFor="let i of (items$ | async)">
-
-    <!-- <mat-card>
-      <mat-card-content>
-        <img
-          src="https://www.structuralguide.com/wp-content/uploads/2022/01/Construction-Materials.jpg">
-        <section>
-          <span class="name">{{i.name}}</span>
-          <span>{{i.price}} ron/bucata</span>
-          <span>{{i.description}}</span>
-          <span>Disponibil online. Livrare in maximum 48 ore!</span>
-          <button mat-fab extended color="primary">
-            <mat-icon>add_shopping_cart</mat-icon>
-            Adauga in cos
-          </button>
-        </section>
-      </mat-card-content>
-
-    </mat-card> -->
-
     <div class="card">
 
       <div class="triangle-down"></div>
@@ -43,8 +24,9 @@
       <div class="actions">
         <!-- <button>Vizitati produs</button>
         <button>Adauga in cos</button> -->
-        <app-raised-button [text]="'Vizitati produsul'"></app-raised-button>
-        <app-raised-button [text]="'Adaugati in cos'"></app-raised-button>
+        <app-raised-button [text]="'Vizitati produsul'"
+          [routerLink]="['/items',i.itemID]"></app-raised-button>
+        <app-raised-button [text]="'Adaugati in cos'" (click)="add(i)"></app-raised-button>
       </div>
     </div>
 

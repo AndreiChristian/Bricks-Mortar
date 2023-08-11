@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CartItem, Item } from 'src/app/models/models';
 import { CartService } from '../cart.service';
+import { imageUrls } from 'src/app/constants/constants';
 
 @Component({
   selector: 'app-cart',
@@ -9,6 +10,8 @@ import { CartService } from '../cart.service';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
+
+  craneImage= imageUrls.crane
 
   cartItems$: Observable<CartItem[]>
 

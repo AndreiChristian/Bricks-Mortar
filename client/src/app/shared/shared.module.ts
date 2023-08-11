@@ -57,7 +57,8 @@ import { SectionHeaderComponent } from './UI/section-header/section-header.compo
     RaisedButtonComponent,
     StrokedButtonComponent,
     RaisedIconButtonComponent,
-    StrokedIconButtonComponent
+    StrokedIconButtonComponent,
+    SectionHeaderComponent
   ]
 })
 export class SharedModule { }

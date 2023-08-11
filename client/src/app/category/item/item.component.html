@@ -1,10 +1,5 @@
-<h2>/// {{id}}</h2>
-<div *ngIf="(!loading$) && (category$) " class="header">
-  <img [src]="(category$|async).image" alt>
-  <section>
-    <h1>{{ (category$ | async).name }}</h1>
-    <p>{{ (category$ | async).description}}</p>
-  </section>
-</div>
+
+<app-section-header [description]="(category$ | async).description"
+  [image]="(category$ | async).image" [title]="(category$ | async).name"></app-section-header>
 
 <app-items-list [items$]="categoryItems$"></app-items-list>

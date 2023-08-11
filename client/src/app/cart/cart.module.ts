@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { CartComponent } from './cart/cart.component';
 import { RouterModule, Routes } from '@angular/router';
 import { MaterialModule } from '../material/material.module';
+import { SharedModule } from '../shared/shared.module';
 
 const cartRoutes: Routes = [
   { path: "", component: CartComponent }
@@ -15,7 +16,8 @@ const cartRoutes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(cartRoutes),
-    MaterialModule
+    MaterialModule,
+    SharedModule
   ]
 })
 export class CartModule { }

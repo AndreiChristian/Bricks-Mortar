@@ -1,45 +1,40 @@
-<h1>Cart</h1>
+<h1>/// Cart</h1>
 
 <div class="grid">
   <ng-container *ngFor="let i of (cartItems$ | async)">
 
-    <mat-card>
-      <mat-card-content>
-        <section>
-          <img
-            src="https://www.structuralguide.com/wp-content/uploads/2022/01/Construction-Materials.jpg">
-          <div class="about">
-            <span class="name">{{i.name}}</span>
-            <span>{{i.price}} ron/bucata</span>
-            <span>{{i.description}}</span>
-            <span>Cantitate : {{i.quantity}}</span>
-            <span>Total : {{i.quantity * i.price }}</span>
-          </div>
-          <div class="actions">
-            <button mat-fab extended color="primary" (click)="addOneToCart(i)">
-              <mat-icon>add_shopping_cart</mat-icon>
-              Adauga in cos
-            </button>
-            <button mat-fab extended color="accent"
-              (click)="decrementOneFromCart(i.itemID)">
-              <mat-icon>add_shopping_cart</mat-icon>
-              Reduceti cantitate
-            </button>
-            <button mat-fab extended color="warn"
-              (click)="removeFromCart(i.itemID)">
-              <mat-icon>add_shopping_cart</mat-icon>
-              Elimina din cos
-            </button>
-          </div>
-        </section>
-      </mat-card-content>
+    <div class="card">
 
-    </mat-card>
+      <div class="triangle-down"></div>
+      <div class="triangle-up"></div>
+
+      <img
+        [src]="craneImage" />
+      <div class="about">
+        <span>{{i.name}}</span>
+        <span>{{i.description}}</span>
+        <span>Disponibil online. Livrare in maximum 48 ore!</span>
+        <span>{{i.price}} ron/bucata</span>
+      </div>
+
+      <div class="actions">
+        <div class="row">
+          <div class="modify" (click)="addOneToCart(i)">+</div>
+          <div class="modify" (click)="decrementOneFromCart(i.itemID)">-</div>
+        </div>
+        <div class="spacer"></div>
+        <span class="quantity">{{i.quantity}}</span>
+        <span>Produse in cos</span>
+        <button class="remove"
+          (click)="removeFromCart(i.itemID)">Eliminati</button>
+        <div class="spacer"></div>
+        <app-raised-button [text]="'Vizitati produsul'"
+          [routerLink]="['/items',i.itemID]"></app-raised-button>
+      </div>
+
+    </div>
 
   </ng-container>
 </div>
-<button style="width: 100%; margin: 5vh auto; height: 10vh;"
-  routerLink="/order/new" mat-raised-button
-  color="primary"
-  routerLink="/order/new"><h1>Mergeti la completarea
-    datelor de contact</h1></button>
+
+<button routerLink="/order/new">Mergeti la adresa de livrare</button>
