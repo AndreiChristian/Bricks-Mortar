@@ -6,9 +6,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { FormComponent } from './form/form.component';
+import { SharedModule } from '../shared/shared.module';
 
 const orderRoutes: Routes = [
   { path: "new", component: FormComponent }
@@ -27,6 +28,8 @@ const orderRoutes: Routes = [
     MatRadioModule,
     MatCardModule,
     ReactiveFormsModule,
+    FormsModule,
+    SharedModule,
     RouterModule.forChild(orderRoutes)
   ]
 })

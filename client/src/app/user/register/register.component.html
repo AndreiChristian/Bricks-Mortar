@@ -1,58 +1,62 @@
-<mat-card>
-  <mat-progress-bar *ngIf="(loading$ | async)" mode="indeterminate"></mat-progress-bar>
-  <mat-card-header>
-    <mat-card-title><h1>Register</h1></mat-card-title>
-  </mat-card-header>
-  <mat-card-content>
-    <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">
-      <!-- First Name Input -->
-      <mat-form-field appearance="outline" class="full-width">
-        <mat-label>First Name</mat-label>
-        <input matInput required type="text" name="first_name" ngModel
-          #firstName="ngModel">
-        <mat-error *ngIf="firstName.invalid && firstName.touched">
-          First Name is required.
-        </mat-error>
-      </mat-form-field>
+<div class="card">
+  <h1>Register</h1>
 
-      <div class="spacer"></div>
+  <div class="triangle-down"></div>
 
-      <!-- Last Name Input -->
-      <mat-form-field appearance="outline" class="full-width">
-        <mat-label>Last Name</mat-label>
-        <input matInput required type="text" name="last_name" ngModel
-          #lastName="ngModel">
-        <mat-error *ngIf="lastName.invalid && lastName.touched">
-          Last Name is required.
-        </mat-error>
-      </mat-form-field>
+  <form class="form" #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">
 
-      <div class="spacer"></div>
-      <!-- Email Input -->
-      <mat-form-field appearance="outline" class="full-width">
-        <mat-label>Email</mat-label>
-        <input matInput required type="email" name="email" ngModel
-          #email="ngModel">
-        <mat-error *ngIf="email.invalid && email.touched">
-          Please enter a valid email.
-        </mat-error>
-      </mat-form-field>
+    <!-- First Name Input -->
+    <div class="form-field"
+      [ngClass]="{'error': firstName.invalid && firstName.touched}">
+      <label>First Name</label>
+      <input type="text" placeholder="John" required name="first_name" ngModel
+        #firstName="ngModel">
+      <span class="error-element"
+        [ngClass]="{'error': firstName.invalid && firstName.touched}">First Name
+        is required</span>
+    </div>
 
-      <div class="spacer"></div>
-      <!-- Password Input -->
-      <mat-form-field appearance="outline" class="full-width">
-        <mat-label>Password</mat-label>
-        <input matInput required type="password" name="password" ngModel
-          #password="ngModel">
-        <mat-error *ngIf="password.invalid && password.touched">
-          Password is required.
-        </mat-error>
-      </mat-form-field>
+    <div class="spacer"></div>
 
-      <div class="spacer"></div>
+    <!-- Last Name Input -->
+    <div class="form-field"
+      [ngClass]="{'error': lastName.invalid && lastName.touched}">
+      <label>Last Name</label>
+      <input type="text" placeholder="Doe" required name="last_name" ngModel
+        #lastName="ngModel">
+      <span class="error-element"
+        [ngClass]="{'error': lastName.invalid && lastName.touched}">Last Name is
+        required</span>
+    </div>
 
-      <button mat-raised-button color="primary" type="submit"
-        [disabled]="registerForm.invalid">Register</button>
-    </form>
-  </mat-card-content>
-</mat-card>
+    <div class="spacer"></div>
+
+    <!-- Email Input -->
+    <div class="form-field"
+      [ngClass]="{'error': email.invalid && email.touched}">
+      <label>Email</label>
+      <input type="email" placeholder="user@example.com" required email
+        name="email" ngModel #email="ngModel">
+      <span class="error-element"
+        [ngClass]="{'error': email.invalid && email.touched}">Please enter a
+        valid email</span>
+    </div>
+
+    <div class="spacer"></div>
+
+    <!-- Password Input -->
+    <div class="form-field"
+      [ngClass]="{'error': password.invalid && password.touched}">
+      <label>Password</label>
+      <input type="password" placeholder="******" required name="password"
+        ngModel #password="ngModel">
+      <span class="error-element"
+        [ngClass]="{'error': password.invalid && password.touched}">Password is
+        required</span>
+    </div>
+
+    <div class="spacer"></div>
+
+    <app-raised-button text="Register" type="submit"></app-raised-button>
+  </form>
+</div>

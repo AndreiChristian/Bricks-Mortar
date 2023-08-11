@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { MaterialModule } from '../material/material.module';
 import { ProfileComponent } from './profile/profile.component';
 import { CustomFormModule } from '../form/form.module';
+import { SharedModule } from '../shared/shared.module';
 
 
 const userRoutes: Routes = [
@@ -27,7 +28,8 @@ const userRoutes: Routes = [
     FormsModule,
     MaterialModule,
     RouterModule.forChild(userRoutes),
-    CustomFormModule
+    CustomFormModule,
+    SharedModule
   ]
 })
 export class UserModule { }

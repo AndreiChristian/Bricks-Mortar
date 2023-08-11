@@ -4,6 +4,7 @@ import { FormFieldComponent } from './form-field/form-field.component';
 import { FormInputComponent } from './form-input/form-input.component';
 import { FormLabelComponent } from './form-label/form-label.component';
 import { FormErrorComponent } from './form-error/form-error.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -16,6 +17,8 @@ import { FormErrorComponent } from './form-error/form-error.component';
   ],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
     FormFieldComponent,

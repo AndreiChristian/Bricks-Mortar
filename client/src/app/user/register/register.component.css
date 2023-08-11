@@ -3,10 +3,94 @@ mat-card {
   margin: 2rem auto;
 }
 
+h1 {
+  font-size: 3rem;
+  color: var(--mint);
+}
+
 .spacer {
   height: 2vh;
 }
 
 .full-width {
   width: 100%;
+}
+
+.card {
+  width: 100%;
+  background-color: var(--dark);
+  box-sizing: border-box;
+  padding: 2vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+}
+
+.triangle-up {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 0;
+  height: 0;
+  border-top: 200px solid var(--mint);
+  border-left: 200px solid transparent;
+}
+
+.triangle-down {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-bottom: 100px solid var(--mint);
+  border-right: 100px solid transparent;
+}
+
+form {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+input {
+  outline: none;
+  border: none;
+  background-color: var(--dark);
+  padding: 15px 25px;
+  border: 1px solid var(--mint);
+  border-radius: 20px;
+  color: var(--mint);
+  width: 50vw;
+  flex: 1;
+}
+
+.form-field {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1vh;
+  color: var(--mint);
+  transition: all 0.5s;
+}
+
+.error-element {
+  color: transparent;
+}
+
+.form-field.error {
+  color: var(--warn) !important;
+  border-color: var(--warn) !important;
+}
+.error-element.error {
+  color: var(--warn) !important;
+}
+
+.form-field.error input {
+  border-color: var(--warn) !important;
+  color: var(--warn) !important;
 }
