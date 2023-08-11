@@ -6,6 +6,7 @@ import { RegisterComponent } from "./register/register.component"
 import { FormsModule } from '@angular/forms';
 import { MaterialModule } from '../material/material.module';
 import { ProfileComponent } from './profile/profile.component';
+import { CustomFormModule } from '../form/form.module';
 
 
 const userRoutes: Routes = [
@@ -25,7 +26,8 @@ const userRoutes: Routes = [
     CommonModule,
     FormsModule,
     MaterialModule,
-    RouterModule.forChild(userRoutes)
+    RouterModule.forChild(userRoutes),
+    CustomFormModule
   ]
 })
 export class UserModule { }
